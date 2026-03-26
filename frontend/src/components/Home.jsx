@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { FiDownload, FiArrowDown } from 'react-icons/fi';
-import resume from '../assets/resume.pdf'
+import resume from '../assets/resume.pdf';
+import profileImg from '../assets/Photo.jpg';
 import './Home.css';
 
 const typingTexts = [
@@ -136,7 +137,7 @@ export default function Home() {
             >
               <div className="profile-ring"></div>
               <img
-                src="src/assets/Photo.jpg"
+                src={profileImg}
                 alt="Rathi Varman - Developer"
                 className="profile-img"
               />

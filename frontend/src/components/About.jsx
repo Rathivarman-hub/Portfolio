@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import profileImg2 from '../assets/Photo2.jpeg';
 import './About.css';
 
 
@@ -60,7 +61,7 @@ export default function About() {
             >
               <div className="about-img-card glass-card overflow-hidden">
                 <img
-                  src="src/assets/Photo2.jpeg"
+                  src={profileImg2}
                   alt="Profile"
                   className="about-profile-img"
                 />
