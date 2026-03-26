@@ -1,0 +1,86 @@
+/* ===========================
+   THEME CSS VARIABLES
+   =========================== */
+
+/* Dark Theme (default) */
+:root[data-theme="dark"],
+.dark-theme {
+  --bg-primary: #0d0d1a;
+  --bg-secondary: #111128;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-card-hover: rgba(255, 255, 255, 0.09);
+  --bg-glass: rgba(17, 17, 40, 0.8);
+  --bg-navbar: rgba(13, 13, 26, 0.95);
+
+  --text-primary: #f0f0ff;
+  --text-secondary: #a0a8c0;
+  --text-accent: #00d4ff;
+  --text-accent2: #8b5cf6;
+  --text-muted: #6b7280;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(0, 212, 255, 0.3);
+
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  --gradient-hero: linear-gradient(135deg, #0d0d1a 0%, #1a1a3e 50%, #0d1a2a 100%);
+  --gradient-card: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.05) 100%);
+  --gradient-section: linear-gradient(180deg, #0d0d1a 0%, #111128 100%);
+
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.4);
+  --shadow-card-hover: 0 16px 48px rgba(99,102,241,0.25);
+  --shadow-glow: 0 0 30px rgba(99,102,241,0.3);
+  --shadow-navbar: 0 4px 20px rgba(0,0,0,0.5);
+
+  --accent-1: #6366f1;
+  --accent-2: #8b5cf6;
+  --accent-3: #06b6d4;
+  --accent-4: #10b981;
+  --success: #22c55e;
+
+  --progress-bg: rgba(255,255,255,0.08);
+  --divider: rgba(255,255,255,0.06);
+}
+
+/* Light Theme */
+:root[data-theme="light"],
+.light-theme {
+  --bg-primary: #f8f9ff;
+  --bg-secondary: #eef0f8;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f2ff;
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-navbar: rgba(248, 249, 255, 0.97);
+
+  --text-primary: #1a1a3e;
+  --text-secondary: #4a4a6a;
+  --text-accent: #4f46e5;
+  --text-accent2: #7c3aed;
+  --text-muted: #9ca3af;
+
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-accent: rgba(79, 70, 229, 0.3);
+
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  --gradient-hero: linear-gradient(135deg, #f8f9ff 0%, #ede9fe 50%, #e0f2fe 100%);
+  --gradient-card: linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(139,92,246,0.03) 100%);
+  --gradient-section: linear-gradient(180deg, #f8f9ff 0%, #eef0f8 100%);
+
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-card-hover: 0 12px 40px rgba(99,102,241,0.2);
+  --shadow-glow: 0 0 20px rgba(99,102,241,0.15);
+  --shadow-navbar: 0 2px 16px rgba(0,0,0,0.1);
+
+  --accent-1: #4f46e5;
+  --accent-2: #7c3aed;
+  --accent-3: #0891b2;
+  --accent-4: #059669;
+  --success: #16a34a;
+
+  --progress-bg: rgba(0,0,0,0.08);
+  --divider: rgba(0,0,0,0.06);
+}
+
+/* Smooth theme transition */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}

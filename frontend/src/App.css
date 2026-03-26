@@ -1,0 +1,18 @@
+/* App.css - Component-level overrides */
+
+/* Bootstrap overrides */
+.container {
+  max-width: 1200px;
+}
+
+/* Ensure Bootstrap buttons don't conflict */
+.btn {
+  border-radius: 8px;
+}
+
+/* Spinner for loading states */
+.spinner-border-sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}

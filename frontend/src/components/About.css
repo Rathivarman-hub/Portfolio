@@ -1,0 +1,155 @@
+/* About.css */
+.about-section {
+  background: var(--bg-primary);
+}
+
+.section-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-1);
+  margin-bottom: 8px;
+}
+
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+/* Profile Image */
+.about-img-card {
+  position: relative;
+  overflow: hidden;
+  max-width: 350px; 
+  border-radius: 20px;
+}
+
+.about-profile-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.about-img-card:hover .about-profile-img {
+  transform: scale(1.04);
+}
+
+.about-img-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+}
+
+.overlay-tag {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.dot-sep {
+  opacity: 0.5;
+}
+
+/* About Text */
+.about-greeting {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.about-desc {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 12px;
+  font-size: 0.98rem;
+}
+
+/* Career Box */
+.career-box {
+  border-left: 3px solid var(--accent-1);
+}
+
+.education-title {
+  color: var(--text-primary) !important;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--divider);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 16px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  border: 2px solid var(--bg-primary);
+  z-index: 1;
+}
+
+.timeline-content {
+  border-left: 2px solid var(--border-accent);
+}
+
+.timeline-year {
+  font-size: 0.78rem;
+  color: var(--accent-1);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.timeline-title {
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: var(--text-primary);
+}
+
+.timeline-org {
+  font-size: 0.82rem;
+  color: var(--accent-3);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.timeline-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
