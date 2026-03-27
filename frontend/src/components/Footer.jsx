@@ -16,10 +16,10 @@ export default function Footer() {
       <div className="container py-4">
         <div className="text-center">
           <p className="footer-copy">
-            © {new Date().getFullYear()} Rathi Varman. Made with{" "}
-            <FaHeart style={{ color: "#ef4444", display: "inline" }} /> using{" "}
-            <span className="text-gradient font-weight-bold">MERN Stack</span>
-          </p>
+  © {new Date().getFullYear()} <strong>Rathi Varman</strong>. Crafted with{" "}
+  <FaHeart style={{ color: "#ef4444", verticalAlign: "middle" }} /> and passion using{" "}
+  <span className="text-gradient font-weight-bold">MERN Stack</span>.
+</p>
         </div>
       </div>
     </footer>
