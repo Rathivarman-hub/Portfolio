@@ -86,8 +86,8 @@ export default function Home() {
               </div>
 
               <h1 className="hero-title">
-                Hi, I'm <span className="text-gradient">Rathivarman .P</span>
-                <br />
+                Hi, I'm <br />
+                <span className="text-gradient">Rathivarman .P</span>
               </h1>
 
               <div className="typing-container mb-4">
@@ -103,7 +103,7 @@ export default function Home() {
               </p>
 
               {/* CTA Buttons */}
-              <div className="d-flex flex-wrap gap-3 mt-4 mb-5">
+              <div className="hero-btns d-flex flex-wrap gap-3 mt-4 mb-5">
                 <a href="#projects" className="btn-primary-grad" onClick={scrollToProjects} id="view-projects-btn">
                   View Projects <FiArrowDown style={{ marginLeft: 4 }} />
                 </a>

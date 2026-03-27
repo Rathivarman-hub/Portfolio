@@ -2,9 +2,8 @@
 .home-section {
   position: relative;
   background: var(--gradient-hero);
-  min-height: 100vh;
+  min-height: calc(100vh - var(--navbar-height));
   overflow: hidden;
-  padding-top: 70px;
 }
 
 /* Background Orbs */
@@ -60,11 +59,15 @@
 /* Hero Title */
 .hero-title {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 8px;
   color: var(--text-primary);
+}
+
+.text-gradient {
+  white-space: nowrap; /* Keep the name on one line */
 }
 
 /* Typing Effect */
@@ -141,6 +144,32 @@
   border-color: transparent;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+@media (max-width: 991px) {
+  .hero-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    white-space: normal; /* allow wrap on very small screens, or use hyphenation */
+  }
+  
+  .badge-pill {
+    display: flex;
+    margin: 0 auto 1.5rem;
+    width: fit-content;
+  }
+
+  .typing-container,
+  .hero-description {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-btns,
+  .hero-social-links {
+    justify-content: center;
+  }
 }
 
 /* Profile Image */

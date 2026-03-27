@@ -26,13 +26,14 @@ export default function Navbar() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
+          setScrolled(window.scrollY > 50);
+          const navbarHeight = document.getElementById('navbar')?.offsetHeight || 70;
 
           // Determine active section
           const sections = navLinks.map(l => l.href.slice(1));
           for (let i = sections.length - 1; i >= 0; i--) {
             const el = document.getElementById(sections[i]);
-            if (el && el.getBoundingClientRect().top <= 120) {
+            if (el && el.getBoundingClientRect().top <= navbarHeight + 24) {
               setActiveSection(sections[i]);
               break;
             }
@@ -43,22 +44,55 @@ export default function Navbar() {
       }
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 992) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const handleKeydown = (e) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeydown);
+    return () => window.removeEventListener('keydown', handleKeydown);
   }, []);
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      const navbarHeight = document.getElementById('navbar')?.offsetHeight || 70;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY;
+      const offsetTop = Math.max(targetTop - navbarHeight - 8, 0);
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
     }
     setMenuOpen(false);
   };
 
   return (
-    <nav id="navbar" className={`navbar-custom ${scrolled || menuOpen ? 'scrolled' : ''} ${theme}`}>
+    <nav id="navbar" className={`navbar-custom ${scrolled || menuOpen ? 'scrolled' : ''}`} data-theme={theme}>
       <div className="container-fluid px-2 px-sm-4 px-lg-5">
-        <div className="d-flex align-items-center justify-content-between w-100">
+        <div className="navbar-inner d-flex align-items-center justify-content-between w-100">
 
           {/* Brand */}
           <a href="#home" className="navbar-brand-custom" onClick={e => handleNavClick(e, '#home')}>
@@ -97,6 +131,8 @@ export default function Navbar() {
               className={`hamburger-btn d-lg-none ${menuOpen ? 'active' : ''}`}
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle Menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
               {menuOpen ? <FiX /> : <FiMenu />}
             </button>
@@ -104,8 +140,14 @@ export default function Navbar() {
         </div>
       </div>
 
+      <div
+        className={`mobile-menu-backdrop d-lg-none ${menuOpen ? 'open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
+
       {/* Mobile Menu */}
-      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+      <div id="mobile-menu" className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
         <div className="container">
           <div className="mobile-menu-inner">
             {navLinks.map(link => (

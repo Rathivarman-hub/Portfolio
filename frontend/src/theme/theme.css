@@ -10,7 +10,7 @@
   --bg-card: rgba(255, 255, 255, 0.05);
   --bg-card-hover: rgba(255, 255, 255, 0.09);
   --bg-glass: rgba(17, 17, 40, 0.8);
-  --bg-navbar: rgba(13, 13, 26, 0.95);
+  --bg-navbar: #0d0d1a; /* Solid background */
 
   --text-primary: #f0f0ff;
   --text-secondary: #a0a8c0;
@@ -49,7 +49,7 @@
   --bg-card: #ffffff;
   --bg-card-hover: #f0f2ff;
   --bg-glass: rgba(255, 255, 255, 0.9);
-  --bg-navbar: rgba(248, 249, 255, 0.97);
+  --bg-navbar: #f8f9ff; /* Solid background */
 
   --text-primary: #1a1a3e;
   --text-secondary: #4a4a6a;
