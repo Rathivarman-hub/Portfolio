@@ -2,8 +2,14 @@
 .home-section {
   position: relative;
   background: var(--gradient-hero);
-  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100vh - var(--navbar-height-desktop, 72px));
   overflow: hidden;
+}
+
+@media (max-width: 991px) {
+  .home-section {
+    min-height: calc(100vh - var(--navbar-height-mobile, 68px));
+  }
 }
 
 /* Background Orbs */

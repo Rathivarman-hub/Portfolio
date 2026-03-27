@@ -51,7 +51,7 @@ export default function About() {
 
         <div className="row align-items-start g-5">
           {/* Left: Profile Image */}
-          <div className="col-lg-5">
+          <div className="col-12 col-lg-5">
             <motion.div
               className="about-image-wrapper"
               initial={{ opacity: 0, x: -40 }}
@@ -80,7 +80,7 @@ export default function About() {
           </div>
 
           {/* Right: Description */}
-          <div className="col-lg-7">
+          <div className="col-12 col-lg-7">
             <motion.div
               variants={containerVariants}
               initial="hidden"

@@ -115,7 +115,7 @@ export default function Navbar() {
           </div>
 
           {/* Right Controls */}
-          <div className="d-flex align-items-center gap-2 gap-sm-3">
+          <div className="navbar-controls d-flex align-items-center gap-2 gap-sm-3">
             {/* Theme Toggle */}
             <button
               id="theme-toggle"
