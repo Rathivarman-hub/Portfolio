@@ -20,7 +20,8 @@ app.use(cors({
     'http://localhost:3001',
     'https://portfolio-rho-one-dzfmo3p7cf.vercel.app',
     'https://student-info-system-eight.vercel.app',
-    'https://varun-furnitures.vercel.app'
+    'https://varun-furnitures.vercel.app',
+    'https://rathivarman-portfolio.vercel.app'
   ],
   credentials: true,
 }));

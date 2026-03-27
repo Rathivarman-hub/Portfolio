@@ -79,7 +79,8 @@
   .nav-links-desktop {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2.5rem;
+    margin-left: 2px;
   }
 }
 

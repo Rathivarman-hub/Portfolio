@@ -101,7 +101,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="nav-links-desktop d-none d-lg-flex align-items-center gap-1">
+          <div className="nav-links-desktop d-none d-lg-flex align-items-center mx-auto">
             {navLinks.map(link => (
               <a
                 key={link.label}
