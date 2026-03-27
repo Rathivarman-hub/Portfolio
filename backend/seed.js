@@ -42,13 +42,13 @@ const projects = [
 ];
 
 const skills = [
-  { name: "HTML5", icon: "🌐", category: "Frontend", color: "#e34f26"},
-  { name: "CSS3", icon: "🎨", category: "Frontend", color: "#1572b6" },
+  { name: "HTML", icon: "🌐", category: "Frontend", color: "#e34f26"},
+  { name: "CSS", icon: "🎨", category: "Frontend", color: "#1572b6" },
   { name: "JavaScript", icon: "JS", category: "Frontend", color: "#f7df1e" },
   { name: "React.js", icon: "⚛️", category: "Frontend", color: "#61dafb"},
   { name: "Bootstrap", icon: "🅱️", category: "Frontend", color: "#7952b3" },
   { name: "Node.js", icon: "🟢", category: "Backend", color: "#339933" },
-  { name: "Express.js", icon: "🇪🇽", category: "Backend", color: "#6366f1"},
+  { name: "Express.js", icon: "Ex", category: "Backend", color: "#6366f1"},
   { name: "MongoDB", icon: "🍃", category: "Database", color: "#47a248"},
   { name: "Git", icon: "🔧", category: "Tools", color: "#f05032"},
 ];

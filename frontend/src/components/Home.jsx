@@ -7,10 +7,10 @@ import profileImg from '../assets/Photo.jpg';
 import './Home.css';
 
 const typingTexts = [
-  'Full Stack Developer',
-  'MERN Stack Developer',
-  'React Developer',
-  'Node.js Developer',
+  'Full Stack MERN Developer',
+  'Building Scalable Web Applications',
+  'Crafting Modern UI with React',
+  'Backend APIs with Node & Express',
 ];
 
 function useTypingEffect(texts, speed = 100, pause = 1800) {
@@ -147,7 +147,7 @@ export default function Home() {
                 <span>⚛️</span> React
               </div>
               <div className="float-badge badge-bottom-right">
-                <span>🇪🇽</span> Express.js
+                <span>Ex</span> Express.js
               </div>
               <div className="float-badge badge-bottom-left">
                 <span>🟢</span> Node.js

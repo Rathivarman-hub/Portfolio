@@ -26,7 +26,7 @@ export default function Navbar() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 60);
+          setScrolled(window.scrollY > 20);
 
           // Determine active section
           const sections = navLinks.map(l => l.href.slice(1));
@@ -57,12 +57,12 @@ export default function Navbar() {
 
   return (
     <nav id="navbar" className={`navbar-custom ${scrolled || menuOpen ? 'scrolled' : ''} ${theme}`}>
-      <div className="container-fluid px-4 px-lg-5">
+      <div className="container-fluid px-2 px-sm-4 px-lg-5">
         <div className="d-flex align-items-center justify-content-between w-100">
 
           {/* Brand */}
           <a href="#home" className="navbar-brand-custom" onClick={e => handleNavClick(e, '#home')}>
-            <span className="brand-text text-gradient">Portfolio</span>
+            <span className="brand-text">Portfolio</span>
             <span className="brand-dot">.</span>
           </a>
 
@@ -81,10 +81,7 @@ export default function Navbar() {
           </div>
 
           {/* Right Controls */}
-          <div className="d-flex align-items-center gap-3">
-            {/* Social Icons */}
-
-
+          <div className="d-flex align-items-center gap-2 gap-sm-3">
             {/* Theme Toggle */}
             <button
               id="theme-toggle"
@@ -97,7 +94,7 @@ export default function Navbar() {
 
             {/* Hamburger */}
             <button
-              className="hamburger-btn d-lg-none"
+              className={`hamburger-btn d-lg-none ${menuOpen ? 'active' : ''}`}
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle Menu"
             >
@@ -109,17 +106,19 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        <div className="mobile-menu-inner">
-          {navLinks.map(link => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={`mobile-nav-link ${activeSection === link.href.slice(1) ? 'active' : ''}`}
-              onClick={e => handleNavClick(e, link.href)}
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="container">
+          <div className="mobile-menu-inner">
+            {navLinks.map(link => (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`mobile-nav-link ${activeSection === link.href.slice(1) ? 'active' : ''}`}
+                onClick={e => handleNavClick(e, link.href)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
