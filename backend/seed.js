@@ -30,8 +30,8 @@ const projects = [
 
 
 {
-  title: 'Movie Database App',
-  description: 'A movie browsing application that allows users to search movies, view ratings, trailers, and details using the TMDB API."You need to see the details by using VPN"',
+  title: 'Movie Database App(use VPN)',
+  description: 'A movie browsing application that allows users to search movies, view ratings, trailers, and details using the TMDB API.',
   image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=350&fit=crop',
   technologies: ['React', 'Bootstrap', 'TMDB API'],
   githubLink: 'https://github.com/Rathivarman-hub/movie-app',
