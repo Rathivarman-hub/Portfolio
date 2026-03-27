@@ -2,8 +2,6 @@ import { motion } from 'framer-motion';
 import profileImg2 from '../assets/Photo2.jpeg';
 import './About.css';
 
-
-
 const timeline = [
   {
     year: '2023 - 2027',
@@ -101,10 +99,6 @@ export default function About() {
                 </p>
               </motion.div>
 
-              {/* Career Objective */}
-
-
-              {/* Timeline */}
               <motion.div variants={itemVariants}>
                 <h5 className="mb-3 education-title"> Education</h5>
                 <div className="timeline">

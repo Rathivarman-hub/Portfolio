@@ -1,7 +1,5 @@
-import Skill from '../models/Skill.js';
+import Skill from "../models/Skill.js";
 
-// @desc    Get all skills
-// @route   GET /api/skills
 export const getSkills = async (req, res) => {
   try {
     const skills = await Skill.find().sort({ percentage: -1 });
@@ -11,8 +9,6 @@ export const getSkills = async (req, res) => {
   }
 };
 
-// @desc    Create a skill
-// @route   POST /api/skills
 export const createSkill = async (req, res) => {
   try {
     const skill = await Skill.create(req.body);
