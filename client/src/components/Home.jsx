@@ -91,7 +91,7 @@ export default function Home() {
               </h1>
 
               <div className="typing-container mb-4">
-                <span className="typing-prefix">I'm a </span>
+                <span className="typing-prefix"> </span>
                 <span className="typing-text">{typingText}</span>
                 <span className="typing-cursor">|</span>
               </div>

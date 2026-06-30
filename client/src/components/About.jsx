@@ -30,7 +30,7 @@ const experienceTimeline = [
     year: '2025',
     title: 'Frontend Developer Internship',
     org: 'CodeAlpha',
-    desc: 'Developed responsive and interactive UIs using React and Tailwind CSS.',
+    desc: 'Developed responsive and interactive UIs using HTML, CSS and JavaScript.',
   },
 ];
 

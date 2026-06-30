@@ -6,13 +6,24 @@ import ev from '../assets/evcharging.png';
 import stock from '../assets/stockzen.png';
 import furniture from '../assets/furniture.png';
 import student from '../assets/studmanagement.png';
-import movie from '../assets/movie.png';
 import api from '../utils/api';
 import './Projects.css';
 
 const defaultProjects = [
-   {
+  {
   _id: '1',
+  title: 'VendorBridge - Procurement ERP System',
+  description: 'A full-stack Procurement ERP platform that enables companies to manage vendors, create RFQs, collect and compare vendor quotations, track Purchase Orders and Invoices, and streamline procurement workflows. Features 4-role RBAC, JWT authentication, real-time notifications with Socket.io, Gmail OAuth2 email integration, Cloudinary file uploads, analytics dashboard, and secure end-to-end procurement management.',
+  image: vendorBridge,
+  technologies: ['React 18','Node.js','Express.js','MongoDB','Socket.io','JWT','Cloudinary','Gmail OAuth2','RBAC'
+  ],
+  githubLink: 'https://github.com/Rathivarman-hub/vendor-bridge',
+  liveLink: 'https://vendor-bridge-erp-system.vercel.app/',
+  category: 'Full Stack',
+  featured: true
+},
+   {
+  _id: '2',
   title: 'Booking Platform',
   description: 'A responsive MERN stack booking platform where users can securely register with OTP verification, book slots, and manage bookings. Includes Role-Based Access Control for Participants, Organisers, and Admins, with secure authentication, booking management, and scalable backend architecture.',
   image: booking,
@@ -23,7 +34,7 @@ const defaultProjects = [
   featured: true,
 },
   {
-  _id: '2',
+  _id: '3',
   title: 'EV Charging Station Booking Platform',
   description: 'A full-stack MERN application for discovering and booking EV charging station time slots across Tamil Nadu. Features OTP authentication, profile management with Cloudinary uploads, live slot availability updates with Socket.io, Google Maps integration with custom markers, and an admin dashboard for station management and analytics.',
   image: ev,
@@ -33,7 +44,7 @@ const defaultProjects = [
   category: 'Full Stack',
   featured: true,
 },{
-  _id: '3',
+  _id: '4',
   title: 'StockZen – Inventory Management System',
   description: 'A full-stack inventory management system built with the MERN stack for efficient product tracking and stock management. Features dynamic dashboards, real-time stock updates, stock in/out management, and automated inventory updates with a modern dark glassmorphism UI.',
   image: stock,
@@ -44,7 +55,7 @@ const defaultProjects = [
   featured: true,
 },
   {
-  _id: '4',
+  _id: '5',
   title: 'Varun Furnitures',
   description: 'A modern furniture store website where users can browse furniture products, view details, and place orders online with a responsive UI.',
   image: furniture,
@@ -54,7 +65,7 @@ const defaultProjects = [
   category: 'Full Stack',
 },
   {
-  _id: '5',
+  _id: '6',
   title: 'Student Information System',
   description: 'A full-stack MERN application for managing student records. Admins can efficiently create, edit, or delete student profiles.',
   image: student,
@@ -63,17 +74,6 @@ const defaultProjects = [
   liveLink: 'https://student-info-system-eight.vercel.app/',
   category: 'Full Stack',
 },
-{
-  _id: '6',
-  title: 'Movie Database App',
-  description: 'A movie browsing application that allows users to search movies, view ratings, trailers, and details using the TMDB API. Note: A VPN may be required to access some details due to geo-restrictions.',
-  image: movie,
-  technologies: ['React', 'Bootstrap', 'TMDB API'],
-  githubLink: 'https://github.com/Rathivarman-hub/movie-app',
-  liveLink: 'https://movie-lzn4xrix8-rathivarman-hubs-projects.vercel.app/',
-  category: 'Frontend',
-  featured: false,
-}
 
 ];
 
