@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import booking from '../assets/booking.png';
+import vendorBridge from '../assets/vendorbridge.png';
 import ev from '../assets/evcharging.png';
 import stock from '../assets/stockzen.png';
 import furniture from '../assets/furniture.png';
