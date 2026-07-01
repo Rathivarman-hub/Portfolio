@@ -11,7 +11,7 @@ import JS from '../assets/JS.webp'
 const certs = [
   {
     id: 1,
-    title: 'CLoud Computing',
+    title: 'Cloud Computing',
     issuer: 'NPTEL',
     date: 'JUL-OCT 2025',
     image: Cloud,
