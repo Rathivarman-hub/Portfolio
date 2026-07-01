@@ -57,3 +57,53 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
 }
+
+.badge-category {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: rgba(150, 150, 150, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.category-header {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .mobile-skill-card {
+    padding: 0.75rem !important;
+  }
+  
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1.1rem;
+  }
+
+  .skill-svg-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  
+  .skill-card-inner {
+    gap: 10px !important;
+  }
+  
+  .skill-name {
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .badge-category {
+    font-size: 0.65rem;
+    padding: 1px 6px;
+  }
+}

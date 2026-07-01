@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import './Certificates.css';
-import Cloud from '../assets/cloud.png';
-import TCS from '../assets/tcs.png';
-import UI from '../assets/UI.png';
-import HCI from '../assets/HCI.png';
-import OB from '../assets/OB.png';
-import JS from '../assets/JS.png'
+import Cloud from '../assets/cloud.webp';
+import TCS from '../assets/tcs.webp';
+import UI from '../assets/UI.webp';
+import HCI from '../assets/HCI.webp';
+import OB from '../assets/OB.webp';
+import JS from '../assets/JS.webp'
 
 const certs = [
   {
@@ -105,6 +105,7 @@ export default function Certificates() {
                     src={cert.image}
                     alt={cert.title}
                     className="cert-img"
+                    loading="lazy"
                     onError={e => e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop'}
                   />
                   <div className="cert-overlay">

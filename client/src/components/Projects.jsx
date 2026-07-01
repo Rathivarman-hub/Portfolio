@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import booking from '../assets/booking.png';
-import vendorBridge from '../assets/vendorbridge.png';
-import ev from '../assets/evcharging.png';
-import stock from '../assets/stockzen.png';
-import furniture from '../assets/furniture.png';
-import student from '../assets/studmanagement.png';
+import booking from '../assets/booking.webp';
+import vendorBridge from '../assets/vendorbridge.webp';
+import ev from '../assets/evcharging.webp';
+import stock from '../assets/stockzen.webp';
+import furniture from '../assets/furniture.webp';
+import student from '../assets/studmanagement.webp';
 import api from '../utils/api';
 import './Projects.css';
 
@@ -154,6 +154,7 @@ export default function Projects() {
                       src={project.image || 'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=600&h=350&fit=crop'}
                       alt={project.title}
                       className="project-img"
+                      loading="lazy"
                       onError={e => e.target.src = 'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=600&h=350&fit=crop'}
                     />
                     <div className="project-overlay">

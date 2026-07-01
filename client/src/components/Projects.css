@@ -117,6 +117,7 @@
   margin-bottom: 14px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -136,4 +137,10 @@
 .btn-sm-proj {
   padding: 8px 16px !important;
   font-size: 0.82rem !important;
+}
+
+@media (max-width: 768px) {
+  .project-img-wrap {
+    height: 160px;
+  }
 }

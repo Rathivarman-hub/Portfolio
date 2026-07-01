@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { FiDownload, FiArrowDown } from 'react-icons/fi';
 import resume from '../assets/Resume.pdf';
-import profileImg from '../assets/Photo.jpeg';
+import profileImg from '../assets/Photo.webp';
 import './Home.css';
 
 const typingTexts = [

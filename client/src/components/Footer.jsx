@@ -15,11 +15,12 @@ export default function Footer() {
       <div className="footer-gradient-line"></div>
       <div className="container py-4">
         <div className="text-center">
-          <p className="footer-copy">
-  © {new Date().getFullYear()} <strong>Rathi Varman</strong>. Crafted with{" "}
-  <FaHeart style={{ color: "#ef4444", verticalAlign: "middle" }} /> and passion using{" "}
-  <span className="text-gradient font-weight-bold">MERN Stack</span>.
-</p>
+          <p className="footer-copy mb-2" style={{ fontWeight: 500 }}>
+            &copy; {new Date().getFullYear()} <strong>Rathivarman</strong>. All rights reserved.
+          </p>
+          <p className="footer-subtext mb-0">
+            Designed &amp; Developed by <span className="text-gradient" style={{ fontWeight: 600 }}>Rathivarman</span> &nbsp;|&nbsp; MERN Stack Developer
+          </p>
         </div>
       </div>
     </footer>
