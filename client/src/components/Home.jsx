@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { FiDownload, FiArrowDown } from 'react-icons/fi';
+import { SiReact, SiExpress, SiNodedotjs, SiMongodb } from 'react-icons/si';
 import resume from '../assets/Resume.pdf';
 import profileImg from '../assets/Photo.webp';
 import './Home.css';
@@ -144,16 +145,16 @@ export default function Home() {
 
               {/* Floating tech badges */}
               <div className="float-badge badge-top-right">
-                <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /></span> React
+                <span><SiReact size={20} color="#61dafb" /></span> React
               </div>
               <div className="float-badge badge-bottom-right">
-                <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /></span> Express.js
+                <span><SiExpress size={20} color="#6366f1" /></span> Express.js
               </div>
               <div className="float-badge badge-bottom-left">
-                <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /></span> Node.js
+                <span><SiNodedotjs size={20} color="#339933" /></span> Node.js
               </div>
               <div className="float-badge badge-top-left">
-                <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /></span> MongoDB
+                <span><SiMongodb size={20} color="#47a248" /></span> MongoDB
               </div>
             </motion.div>
           </div>
