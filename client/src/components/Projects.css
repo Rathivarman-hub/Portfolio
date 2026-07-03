@@ -18,7 +18,8 @@
 .project-img-wrap {
   position: relative;
   overflow: hidden;
-  height: 210px;
+  aspect-ratio: 16 / 9;
+  height: auto;
 }
 
 .project-img {
@@ -140,7 +141,20 @@
 }
 
 @media (max-width: 768px) {
+  /* Tighten grid gutter ~25% on mobile */
+  .projects-section .row.g-4 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+
+  /* Reduce card body padding */
+  .project-body.p-4 {
+    padding: 0.9rem !important;
+  }
+
+  /* Keep aspect-ratio — no fixed height needed on mobile */
   .project-img-wrap {
-    height: 160px;
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
 }

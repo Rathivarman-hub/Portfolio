@@ -103,13 +103,13 @@ export default function Certificates() {
                 <div className="cert-img-wrap">
                   <img
                     src={cert.image}
-                    alt={cert.title}
+                    alt={`Certificate: ${cert.title} by ${cert.issuer}`}
                     className="cert-img"
                     loading="lazy"
                     onError={e => e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop'}
                   />
                   <div className="cert-overlay">
-                    <a href={cert.credentialUrl} target="_blank" rel="noreferrer" className="cert-view-btn">
+                    <a href={cert.credentialUrl} target="_blank" rel="noreferrer" className="cert-view-btn" aria-label={`View credential: ${cert.title}`}>
                       <FaExternalLinkAlt /> View Credential
                     </a>
                   </div>

@@ -79,10 +79,13 @@ a.contact-value:hover {
   color: var(--text-muted);
 }
 
-.form-input-custom:focus {
+.form-input-custom:focus,
+.form-input-custom:focus-visible {
   border-color: var(--accent-1);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
   background: var(--bg-card);
+  outline: 2px solid var(--accent-1);
+  outline-offset: 2px;
 }
 
 .form-input-custom.is-invalid {

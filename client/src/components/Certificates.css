@@ -17,7 +17,8 @@
 .cert-img-wrap {
   position: relative;
   overflow: hidden;
-  height: 200px;
+  aspect-ratio: 4 / 3;
+  height: auto;
 }
 
 .cert-img {
@@ -106,4 +107,22 @@
 .cert-date {
   font-size: 0.78rem;
   color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  /* Tighten grid gutter ~25% on mobile */
+  .certs-section .row.g-4 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+
+  /* Reduce card body padding */
+  .cert-body.p-4 {
+    padding: 0.9rem !important;
+  }
+
+  /* Slightly shorten cert image on very small screens */
+  .cert-img-wrap {
+    aspect-ratio: 16 / 9;
+  }
 }

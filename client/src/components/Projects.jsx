@@ -152,17 +152,17 @@ export default function Projects() {
                   <div className="project-img-wrap">
                     <img
                       src={project.image || 'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=600&h=350&fit=crop'}
-                      alt={project.title}
+                      alt={`Screenshot of ${project.title}`}
                       className="project-img"
                       loading="lazy"
                       onError={e => e.target.src = 'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=600&h=350&fit=crop'}
                     />
                     <div className="project-overlay">
                       <div className="project-overlay-links">
-                        <a href={project.liveLink || '#'} target="_blank" rel="noreferrer" className="project-link-btn" title="Live Demo">
+                        <a href={project.liveLink || '#'} target="_blank" rel="noreferrer" className="project-link-btn" aria-label={`Live demo of ${project.title}`} title="Live Demo">
                           <FaExternalLinkAlt />
                         </a>
-                        <a href={project.githubLink || '#'} target="_blank" rel="noreferrer" className="project-link-btn" title="GitHub">
+                        <a href={project.githubLink || '#'} target="_blank" rel="noreferrer" className="project-link-btn" aria-label={`GitHub repository for ${project.title}`} title="GitHub">
                           <FaGithub />
                         </a>
                       </div>
