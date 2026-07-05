@@ -12,6 +12,7 @@ import {
 import { MdSecurity, MdVpnKey } from 'react-icons/md';
 import { FaAws } from 'react-icons/fa';
 import { VscVscode } from 'react-icons/vsc';
+import { TbApi } from 'react-icons/tb';
 
 const defaultSkills = [
   { name: 'HTML', icon: SiHtml5, category: 'Frontend', color: '#e34f26' },
@@ -22,7 +23,7 @@ const defaultSkills = [
   { name: 'Bootstrap', icon: SiBootstrap, category: 'Frontend', color: '#7952b3' },
   { name: 'Node.js', icon: SiNodedotjs, category: 'Backend', color: '#339933' },
   { name: 'Express.js', icon: SiExpress, category: 'Backend', color: '#6366f1', adaptive: true },
-  { name: 'RestAPI', icon: 'https://img.icons8.com/color/48/api-settings.png', category: 'Backend', color: '#007ACC' },
+  { name: 'RestAPI', icon: TbApi, category: 'Backend', color: '#007ACC' },
   { name: 'Socket.io', icon: SiSocketdotio, category: 'Backend', color: '#ffffff', adaptive: true },
   { name: 'MongoDB', icon: SiMongodb, category: 'Database', color: '#47a248' },
   { name: 'Mongoose', icon: SiMongoose, category: 'Database', color: '#880000' },
@@ -90,8 +91,7 @@ export default function Skills() {
               <h5 className="mb-4 text-gradient category-header">{category}</h5>
               <div className="row g-4">
                 {catSkills.map((skill, i) => {
-                  const isStringIcon = typeof skill.icon === 'string';
-                  const IconComponent = isStringIcon ? null : skill.icon;
+                  const IconComponent = skill.icon;
                   return (
                     <div key={skill.name} className="col-lg-4 col-md-6 col-6">
                       <motion.div
@@ -104,11 +104,7 @@ export default function Skills() {
                       >
                         <div className="d-flex align-items-center gap-3 skill-card-inner">
                           <div className="skill-icon" style={{ background: `${skill.color}18`, color: skill.color }}>
-                            {isStringIcon ? (
-                              <img src={skill.icon} alt={skill.name} data-adaptive={skill.adaptive} style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
-                            ) : (
-                              IconComponent && <IconComponent size={32} className="skill-svg-icon" data-adaptive={skill.adaptive} />
-                            )}
+                            {IconComponent && <IconComponent size={32} className="skill-svg-icon" data-adaptive={skill.adaptive} />}
                           </div>
                           <div className="flex-1 skill-text">
                             <div className="skill-name">{skill.name}</div>
