@@ -1,35 +1,12 @@
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import './Certificates.css';
-import Cloud from '../assets/cloud.webp';
-import TCS from '../assets/tcs.webp';
-import UI from '../assets/UI.webp';
+import CA from '../assets/CA.png';
 import HCI from '../assets/HCI.webp';
-import OB from '../assets/OB.webp';
-import JS from '../assets/JS.webp'
 
 const certs = [
-  {
+   {
     id: 1,
-    title: 'Cloud Computing',
-    issuer: 'NPTEL',
-    date: 'JUL-OCT 2025',
-    image: Cloud,
-    credentialUrl: Cloud,
-    color: '#6366f1',
-  },
-  
-   {
-    id: 2,
-    title: 'Organizational Behaviour: Indiviual Dynamics in Organization',
-    issuer: 'NPTEL',
-    date: 'JAN-APR 2026',
-    image: OB,
-    credentialUrl: OB,
-    color: '#6366f1',
-  },
-   {
-    id: 3,
     title: 'Human-Computer Interaction(In English)',
     issuer: 'NPTEL',
     date: 'JAN-APR 2026',
@@ -38,34 +15,23 @@ const certs = [
     color: '#6366f1',
   },
   {
-    id: 4,
-    title: 'TCS-iON Young Professional',
-    issuer: 'TCS-iON',
-    date: 'Mar 2025',
-    image: TCS,
-    credentialUrl: TCS,
+    id: 2,
+    title: 'Frontend Developer',
+    issuer: 'Code-Alpha',
+    date: 'Aug 2025',
+    image: CA,
+    credentialUrl: CA,
     color: '#61dafb',
   },
   {
-    id: 5,
-    title: 'UI/UX Mastery with AI',
-    issuer: 'Design Phoenix',
-    date: 'May 2025',
+    id: 3,
+    title: 'Full Stack Development',
+    issuer: 'Cognifzy Technologies',
+    date: 'Jul 2026',
     image: UI,
     credentialUrl: UI,
     color: '#339933',
-  },
-   {
-    id: 6,
-    title: 'Javascript',
-    issuer: 'Learn Development Hub',
-    date: 'SEP 2025',
-    image: JS,
-    credentialUrl: JS,
-    color: '#339933',
-  },
-  
- 
+  },  
 ];
 
 export default function Certificates() {
