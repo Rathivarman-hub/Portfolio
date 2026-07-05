@@ -41,9 +41,7 @@ const defaultProjects = [
   liveLink: 'https://stockzen-ims.vercel.app/',
   category: 'Full Stack',
   featured: true,
-},
-
-
+}
 ];
 
 const techColors = {

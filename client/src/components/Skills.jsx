@@ -9,7 +9,7 @@ import {
   SiGit, SiGithub, SiGithubactions, SiPostman,
   SiVercel, SiRender, SiSocketdotio
 } from 'react-icons/si';
-import { MdApi, MdSecurity, MdVpnKey } from 'react-icons/md';
+import { MdSecurity, MdVpnKey } from 'react-icons/md';
 import { FaAws } from 'react-icons/fa';
 import { VscVscode } from 'react-icons/vsc';
 
@@ -22,7 +22,7 @@ const defaultSkills = [
   { name: 'Bootstrap', icon: SiBootstrap, category: 'Frontend', color: '#7952b3' },
   { name: 'Node.js', icon: SiNodedotjs, category: 'Backend', color: '#339933' },
   { name: 'Express.js', icon: SiExpress, category: 'Backend', color: '#6366f1', adaptive: true },
-  { name: 'RestAPI', icon: MdApi, category: 'Backend', color: '#007ACC' },
+  { name: 'RestAPI', icon: 'https://img.icons8.com/color/48/api-settings.png', category: 'Backend', color: '#007ACC' },
   { name: 'Socket.io', icon: SiSocketdotio, category: 'Backend', color: '#ffffff', adaptive: true },
   { name: 'MongoDB', icon: SiMongodb, category: 'Database', color: '#47a248' },
   { name: 'Mongoose', icon: SiMongoose, category: 'Database', color: '#880000' },
@@ -90,7 +90,8 @@ export default function Skills() {
               <h5 className="mb-4 text-gradient category-header">{category}</h5>
               <div className="row g-4">
                 {catSkills.map((skill, i) => {
-                  const IconComponent = typeof skill.icon === 'string' ? SiGit : skill.icon;
+                  const isStringIcon = typeof skill.icon === 'string';
+                  const IconComponent = isStringIcon ? null : skill.icon;
                   return (
                     <div key={skill.name} className="col-lg-4 col-md-6 col-6">
                       <motion.div
@@ -103,7 +104,11 @@ export default function Skills() {
                       >
                         <div className="d-flex align-items-center gap-3 skill-card-inner">
                           <div className="skill-icon" style={{ background: `${skill.color}18`, color: skill.color }}>
-                            {IconComponent && <IconComponent size={32} className="skill-svg-icon" />}
+                            {isStringIcon ? (
+                              <img src={skill.icon} alt={skill.name} style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                            ) : (
+                              IconComponent && <IconComponent size={32} className="skill-svg-icon" />
+                            )}
                           </div>
                           <div className="flex-1 skill-text">
                             <div className="skill-name">{skill.name}</div>
