@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiDownload, FiArrowDown } from 'react-icons/fi';
 import { SiReact, SiExpress, SiNodedotjs, SiMongodb } from 'react-icons/si';
 import resume from '../assets/Resume.pdf';
-import profileImg from '../assets/Photo.webp';
+import profileImg from '../assets/Photo.jpeg';
 import './Home.css';
 
 const typingTexts = [

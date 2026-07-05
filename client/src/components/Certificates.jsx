@@ -28,8 +28,8 @@ const certs = [
     title: 'Full Stack Development',
     issuer: 'Cognifzy Technologies',
     date: 'Jul 2026',
-    image: UI,
-    credentialUrl: UI,
+    image: '',
+    credentialUrl: '',
     color: '#339933',
   },  
 ];

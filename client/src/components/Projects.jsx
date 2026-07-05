@@ -3,10 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import booking from '../assets/booking.webp';
 import vendorBridge from '../assets/vendorbridge.webp';
-import ev from '../assets/evcharging.webp';
 import stock from '../assets/stockzen.webp';
-import furniture from '../assets/furniture.webp';
-import student from '../assets/studmanagement.webp';
 import api from '../utils/api';
 import './Projects.css';
 
@@ -34,18 +31,8 @@ const defaultProjects = [
   category: 'Full Stack',
   featured: true,
 },
-  {
+{
   _id: '3',
-  title: 'EV Charging Station Booking Platform',
-  description: 'A full-stack MERN application for discovering and booking EV charging station time slots across Tamil Nadu. Features OTP authentication, profile management with Cloudinary uploads, live slot availability updates with Socket.io, Google Maps integration with custom markers, and an admin dashboard for station management and analytics.',
-  image: ev,
-  technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'Cloudinary', 'Google Maps API'],
-  githubLink: 'https://github.com/Rathivarman-hub/EVcharging',
-  liveLink: 'https://evcharging-one.vercel.app/',
-  category: 'Full Stack',
-  featured: true,
-},{
-  _id: '4',
   title: 'StockZen – Inventory Management System',
   description: 'A full-stack inventory management system built with the MERN stack for efficient product tracking and stock management. Features dynamic dashboards, real-time stock updates, stock in/out management, and automated inventory updates with a modern dark glassmorphism UI.',
   image: stock,
@@ -55,26 +42,7 @@ const defaultProjects = [
   category: 'Full Stack',
   featured: true,
 },
-  {
-  _id: '5',
-  title: 'Varun Furnitures',
-  description: 'A modern furniture store website where users can browse furniture products, view details, and place orders online with a responsive UI.',
-  image: furniture,
-  technologies: ['React', 'Node.js', 'Express.js','Bootstrap', 'MongoDB'],
-  githubLink: 'https://github.com/Rathivarman-hub/varun_furnitures',
-  liveLink: 'https://varun-furnitures.vercel.app/',
-  category: 'Full Stack',
-},
-  {
-  _id: '6',
-  title: 'Student Information System',
-  description: 'A full-stack MERN application for managing student records. Admins can efficiently create, edit, or delete student profiles.',
-  image: student,
-  technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Bootstrap'],
-  githubLink: 'https://github.com/Rathivarman-hub/student_info_system',
-  liveLink: 'https://student-info-system-eight.vercel.app/',
-  category: 'Full Stack',
-},
+
 
 ];
 
