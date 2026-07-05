@@ -107,7 +107,7 @@ export default function Skills() {
                             {isStringIcon ? (
                               <img src={skill.icon} alt={skill.name} data-adaptive={skill.adaptive} style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
                             ) : (
-                              IconComponent && <IconComponent size={32} className="skill-svg-icon" />
+                              IconComponent && <IconComponent size={32} className="skill-svg-icon" data-adaptive={skill.adaptive} />
                             )}
                           </div>
                           <div className="flex-1 skill-text">

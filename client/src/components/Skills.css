@@ -30,12 +30,12 @@
 }
 
 /* DARK MODE: white SVGs stay white, subtle glow for depth */
-[data-theme="dark"] .skill-icon img[data-adaptive="true"] {
+[data-theme="dark"] .skill-icon [data-adaptive="true"] {
   filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.25));
 }
 
 /* LIGHT MODE: brightness(0) → renders icon as solid black — crisp on any light bg */
-[data-theme="light"] .skill-icon img[data-adaptive="true"] {
+[data-theme="light"] .skill-icon [data-adaptive="true"] {
   filter: brightness(0);
 }
 
