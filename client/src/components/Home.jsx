@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiDownload, FiArrowDown } from 'react-icons/fi';
 import { SiReact, SiExpress, SiNodedotjs, SiMongodb } from 'react-icons/si';
 import resume from '../assets/Resume.pdf';
