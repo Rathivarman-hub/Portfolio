@@ -105,7 +105,7 @@ export default function Skills() {
                         <div className="d-flex align-items-center gap-3 skill-card-inner">
                           <div className="skill-icon" style={{ background: `${skill.color}18`, color: skill.color }}>
                             {isStringIcon ? (
-                              <img src={skill.icon} alt={skill.name} style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                              <img src={skill.icon} alt={skill.name} data-adaptive={skill.adaptive} style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
                             ) : (
                               IconComponent && <IconComponent size={32} className="skill-svg-icon" />
                             )}
