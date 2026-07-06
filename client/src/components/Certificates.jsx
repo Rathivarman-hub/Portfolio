@@ -16,7 +16,7 @@ const certs = [
   },
   {
     id: 2,
-    title: 'Frontend Developement',
+    title: 'Frontend Development',
     issuer: 'CodeAlpha',
     date: 'Aug 2025',
     image: CA,
