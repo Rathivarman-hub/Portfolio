@@ -7,7 +7,7 @@ import HCI from '../assets/HCI.webp';
 const certs = [
    {
     id: 1,
-    title: 'Human-Computer Interaction(In English)',
+    title: 'Human Computer Interaction',
     issuer: 'NPTEL',
     date: 'JAN-APR 2026',
     image: HCI,
@@ -16,8 +16,8 @@ const certs = [
   },
   {
     id: 2,
-    title: 'Frontend Developer',
-    issuer: 'Code-Alpha',
+    title: 'Frontend Developement',
+    issuer: 'CodeAlpha',
     date: 'Aug 2025',
     image: CA,
     credentialUrl: CA,
