@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FiDownload, FiArrowDown } from 'react-icons/fi';
+import { FiDownload, FiArrowDown, FiEye } from 'react-icons/fi';
 import { SiReact, SiExpress, SiNodedotjs, SiMongodb } from 'react-icons/si';
 import resume from '../assets/Resume.pdf';
 import profileImg from '../assets/Photo.jpeg';
@@ -110,6 +110,9 @@ export default function Home() {
                 </a>
                 <a href={resume} download className="btn-outline-grad" id="download-resume-btn">
                   <FiDownload /> Download CV
+                </a>
+                <a href={resume} target="_blank" rel="noreferrer" className="btn-outline-grad" id="view-resume-btn">
+                  <FiEye /> View Resume
                 </a>
               </div>
 
