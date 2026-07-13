@@ -3,7 +3,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import './Certificates.css';
 import CA from '../assets/CA.png';
 import HCI from '../assets/HCI.webp';
-import cognifzy from '../assets/cognifzy.png'
+import cognifzy from '../assets/Cognifzy.png'
 
 const certs = [
    {
