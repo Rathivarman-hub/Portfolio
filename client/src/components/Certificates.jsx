@@ -3,6 +3,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import './Certificates.css';
 import CA from '../assets/CA.png';
 import HCI from '../assets/HCI.webp';
+import cognifzy from '../assets/cognifzy.png'
 
 const certs = [
    {
@@ -28,7 +29,7 @@ const certs = [
     title: 'Full Stack Development',
     issuer: 'Cognifzy Technologies',
     date: 'Jul 2026',
-    image: '',
+    image: cognifzy,
     credentialUrl: '',
     color: '#339933',
   },  
