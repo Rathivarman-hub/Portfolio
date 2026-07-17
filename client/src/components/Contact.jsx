@@ -20,7 +20,7 @@ const contactInfo = [
     icon: <FaLinkedin />,
     label: "LinkedIn",
     value: "rathivarman-linkedin",
-    href: "https://www.linkedin.com/in/rathivarman-p-5a6b8132b/",
+    href: "https://www.linkedin.com/in/rathivarmanp/",
     color: "#0077b5",
   },
   {
