@@ -122,7 +122,7 @@ export default function Home() {
                   <FaGithub />
                   <span>GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/rathivarmanp/" target="_blank" rel="noreferrer" className="hero-social-link" id="hero-linkedin">
+                <a href="https://www.linkedin.com/in/rathivarman-p/" target="_blank" rel="noreferrer" className="hero-social-link" id="hero-linkedin">
                   <FaLinkedin />
                   <span>LinkedIn</span>
                 </a>
