@@ -1,180 +1,229 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import booking from '../assets/booking.webp';
-import vendorBridge from '../assets/vendorbridge.webp';
-import stock from '../assets/stockzen.webp';
+import { FiArrowRight } from 'react-icons/fi';
 import api from '../utils/api';
+import { projects as defaultProjects } from '../data/projects';
+import ProjectCaseStudyModal from './ProjectCaseStudyModal';
+import Reveal, { staggerDelay } from './Reveal';
 import './Projects.css';
-
-const defaultProjects = [
-  {
-  _id: '1',
-  title: 'VendorBridge - Procurement ERP System',
-  description: 'A full-stack Procurement ERP platform that enables companies to manage vendors, create RFQs, collect and compare vendor quotations, track Purchase Orders and Invoices, and streamline procurement workflows. Features 4-role RBAC, JWT authentication, real-time notifications with Socket.io, Gmail OAuth2 email integration, Cloudinary file uploads, analytics dashboard, and secure end-to-end procurement management.',
-  image: vendorBridge,
-  technologies: ['React 18','Node.js','Express.js','MongoDB','Socket.io','JWT','Cloudinary','Gmail OAuth2','RBAC'
-  ],
-  githubLink: 'https://github.com/Rathivarman-hub/vendor-bridge',
-  liveLink: 'https://vendor-bridge-erp-system.vercel.app/',
-  category: 'Full Stack',
-  featured: true
-},
-   {
-  _id: '2',
-  title: 'Booking Platform',
-  description: 'A responsive MERN stack booking platform where users can securely register with OTP verification, book slots, and manage bookings. Includes Role-Based Access Control for Participants, Organisers, and Admins, with secure authentication, booking management, and scalable backend architecture.',
-  image: booking,
-  technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Vite', 'JWT', 'OTP Authentication'],
-  githubLink: 'https://github.com/Rathivarman-hub/hackathon-booking',
-  liveLink: 'https://appopintment-booking.vercel.app/',
-  category: 'Full Stack',
-  featured: true,
-},
-{
-  _id: '3',
-  title: 'StockZen – Inventory Management System',
-  description: 'A full-stack inventory management system built with the MERN stack for efficient product tracking and stock management. Features dynamic dashboards, real-time stock updates, stock in/out management, and automated inventory updates with a modern dark glassmorphism UI.',
-  image: stock,
-  technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'Axios', 'Framer Motion'],
-  githubLink: 'https://github.com/Rathivarman-hub/stockZen',
-  liveLink: 'https://stockzen-ims.vercel.app/',
-  category: 'Full Stack',
-  featured: true,
-}
-];
 
 const techColors = {
   'React': '#61dafb',
+  'React 18': '#61dafb',
   'Node.js': '#339933',
   'MongoDB': '#47a248',
-  'Express': '#a78bfa',
   'Express.js': '#a78bfa',
-  'Redux': '#764abc',
-  'Socket.io': '#25c2a0',       /* was #010101 — invisible in dark */
-  'Bootstrap': '#9b72cf',
+  'Socket.io': '#25c2a0',
   'JWT': '#d63aff',
-  'Stripe': '#635bff',
-  'Mongoose': '#e05252',
-  'Axios': '#5a29e4',
-  'Framer Motion': '#ff6b9d',
   'Cloudinary': '#f4a523',
-  'Google Maps API': '#4285F4',
+  'Gmail OAuth2': '#ea4335',
+  'RBAC': '#6366f1',
   'Vite': '#646cff',
   'OTP Authentication': '#FF6B6B',
-  'TMDB API': '#01b4e4',
+  'Mongoose': '#e05252',
+  'Axios': '#5a29e4',
   default: '#6366f1',
 };
 
+const PLACEHOLDER_IMAGE =
+  'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=600&h=350&fit=crop';
+
+function resolveProjectImage(apiImage, fallback) {
+  if (typeof apiImage === 'string' && apiImage.trim()) return apiImage.trim();
+  if (fallback) return fallback;
+  return PLACEHOLDER_IMAGE;
+}
+
+function findDefaultProject(apiProject) {
+  return defaultProjects.find(
+    (p) =>
+      p._id === apiProject._id ||
+      p.title === apiProject.title ||
+      p.slug === apiProject.slug ||
+      (p.githubLink && apiProject.githubLink && p.githubLink === apiProject.githubLink) ||
+      (p.liveLink && apiProject.liveLink && p.liveLink === apiProject.liveLink)
+  );
+}
+
+function ProjectCard({ project, featured = false, onCaseStudy }) {
+  const imageSrc = resolveProjectImage(project.image, findDefaultProject(project)?.image);
+
+  return (
+    <article className={`project-card glass-card ${featured ? 'project-card-featured' : ''}`}>
+      <div className="project-card-inner">
+        <div className="project-img-wrap">
+          <img
+            src={imageSrc}
+            alt={`Screenshot of ${project.title}`}
+            className="project-img"
+            loading="lazy"
+          />
+          {project.featured && <div className="featured-badge">Featured</div>}
+        </div>
+
+        <div className="project-body">
+          <div className="project-meta">
+            <span className="category-badge-inline">{project.category}</span>
+          </div>
+          <h3 className="project-title">{project.title}</h3>
+          <p className="project-problem">{project.problem || project.tagline}</p>
+
+          <div className="project-tech">
+            {(project.technologies || []).slice(0, featured ? 6 : 4).map((tech) => (
+              <span
+                key={tech}
+                className="tech-tag"
+                style={{
+                  color: techColors[tech] || techColors.default,
+                  borderColor: `${techColors[tech] || techColors.default}30`,
+                  background: `${techColors[tech] || techColors.default}12`,
+                }}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="project-actions">
+            <button type="button" className="btn-case-study" onClick={() => onCaseStudy(project)}>
+              View Case Study <FiArrowRight />
+            </button>
+            <div className="project-link-group">
+              {project.liveLink && (
+                <a href={project.liveLink} target="_blank" rel="noreferrer" className="project-icon-link" aria-label={`Live demo of ${project.title}`}>
+                  <FaExternalLinkAlt />
+                </a>
+              )}
+              {project.githubLink && (
+                <a href={project.githubLink} target="_blank" rel="noreferrer" className="project-icon-link" aria-label={`GitHub for ${project.title}`}>
+                  <FaGithub />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function mergeProjectDetails(apiProject) {
+  const match = findDefaultProject(apiProject);
+  const image = resolveProjectImage(apiProject.image, match?.image);
+
+  if (!match) {
+    return { ...apiProject, image };
+  }
+
+  return {
+    ...match,
+    ...apiProject,
+    problem: apiProject.problem ?? match.problem,
+    features: apiProject.features ?? match.features,
+    challenges: apiProject.challenges ?? match.challenges,
+    tagline: apiProject.tagline ?? match.tagline,
+    description: apiProject.description || match.description,
+    featured: match.featured !== undefined ? match.featured : apiProject.featured,
+    image,
+  };
+}
+
 export default function Projects() {
   const [projects, setProjects] = useState(defaultProjects);
+  const [activeProject, setActiveProject] = useState(null);
 
   useEffect(() => {
     api.get('/projects')
-      .then(res => {
+      .then((res) => {
         if (res.data.success && res.data.data?.length > 0) {
-          setProjects(res.data.data);
+          const apiProjects = res.data.data.map(mergeProjectDetails);
+          const missingDefaults = defaultProjects.filter(
+            (dp) => !apiProjects.some((ap) => {
+              const match = findDefaultProject(ap);
+              return match && match._id === dp._id;
+            })
+          );
+          const combinedProjects = [...apiProjects, ...missingDefaults];
+
+          // Remove duplicates by checking _id, title, githubLink, and liveLink
+          const seenIds = new Set();
+          const seenTitles = new Set();
+          const seenGithubLinks = new Set();
+          const seenLiveLinks = new Set();
+          
+          const uniqueProjects = combinedProjects.filter((project) => {
+            const isDuplicate = 
+              seenIds.has(project._id) ||
+              seenTitles.has(project.title) ||
+              (project.githubLink && seenGithubLinks.has(project.githubLink)) ||
+              (project.liveLink && seenLiveLinks.has(project.liveLink));
+              
+            if (!isDuplicate) {
+              seenIds.add(project._id);
+              seenTitles.add(project.title);
+              if (project.githubLink) seenGithubLinks.add(project.githubLink);
+              if (project.liveLink) seenLiveLinks.add(project.liveLink);
+            }
+            
+            return !isDuplicate;
+          });
+
+          // Sort projects to match the exact order defined in defaultProjects (projects.js)
+          uniqueProjects.sort((a, b) => {
+            const matchA = findDefaultProject(a);
+            const matchB = findDefaultProject(b);
+            const indexA = matchA ? defaultProjects.indexOf(matchA) : -1;
+            const indexB = matchB ? defaultProjects.indexOf(matchB) : -1;
+            // If both are not in defaultProjects, keep their relative order
+            if (indexA === -1 && indexB === -1) return 0;
+            // Projects not in defaultProjects go to the end
+            if (indexA === -1) return 1;
+            if (indexB === -1) return -1;
+            return indexA - indexB;
+          });
+
+          setProjects(uniqueProjects);
         }
       })
       .catch((err) => {
-        console.error('❌ Error fetching projects:', err.message);
+        console.error('Error fetching projects:', err.message);
       });
   }, []);
 
   return (
     <section id="projects" className="section-padding projects-section">
-      <div className="container">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-5"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="section-label">What I've Built</p>
-          <h2 className="section-title">My <span className="text-gradient">Projects</span></h2>
-          <div className="title-underline mx-auto"></div>
-          <p className="section-subtitle mx-auto mt-3">
-            A showcase of real-world applications built with modern technologies
-          </p>
-        </motion.div>
+      <div className="container content-width">
+        <Reveal>
+          <header className="section-header">
+            <p className="section-label">Work</p>
+            <h2 className="section-title">Projects</h2>
+            <p className="section-subtitle">
+              Production-style MERN applications — each with a problem, features, and technical trade-offs.
+            </p>
+          </header>
+        </Reveal>
 
-        {/* Projects Grid */}
-        <div className="row g-4">
-          <AnimatePresence>
-            {projects.map((project, i) => (
-              <motion.div
-                key={project._id}
-                className="col-lg-4 col-md-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                layout
-              >
-                <div className="project-card glass-card h-100 d-flex flex-column">
-                  {/* Image */}
-                  <div className="project-img-wrap">
-                    <img
-                      src={project.image || 'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=600&h=350&fit=crop'}
-                      alt={`Screenshot of ${project.title}`}
-                      className="project-img"
-                      loading="lazy"
-                      onError={e => e.target.src = 'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=600&h=350&fit=crop'}
-                    />
-                    <div className="project-overlay">
-                      <div className="project-overlay-links">
-                        <a href={project.liveLink || '#'} target="_blank" rel="noreferrer" className="project-link-btn" aria-label={`Live demo of ${project.title}`} title="Live Demo">
-                          <FaExternalLinkAlt />
-                        </a>
-                        <a href={project.githubLink || '#'} target="_blank" rel="noreferrer" className="project-link-btn" aria-label={`GitHub repository for ${project.title}`} title="GitHub">
-                          <FaGithub />
-                        </a>
-                      </div>
-                    </div>
-                    {project.featured && <div className="featured-badge">⭐ Featured</div>}
-                    <div className="category-badge">{project.category}</div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="project-body p-4 d-flex flex-column flex-grow-1">
-                    <h5 className="project-title">{project.title}</h5>
-                    <p className="project-desc">{project.description}</p>
-
-                    {/* Tech Stack */}
-                    <div className="d-flex flex-wrap gap-1 mb-4">
-                      {(project.technologies || []).map(tech => (
-                        <span
-                          key={tech}
-                          className="tech-tag"
-                          style={{
-                            color: techColors[tech] || techColors.default,
-                            borderColor: `${techColors[tech] || techColors.default}30`,
-                            background: `${techColors[tech] || techColors.default}12`,
-                          }}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Buttons */}
-                    <div className="d-flex gap-2 mt-auto">
-                      <a href={project.liveLink || '#'} target="_blank" rel="noreferrer" className="btn-primary-grad btn-sm-proj">
-                        <FaExternalLinkAlt /> Live Demo
-                      </a>
-                      <a href={project.githubLink || '#'} target="_blank" rel="noreferrer" className="btn-outline-grad btn-sm-proj">
-                        <FaGithub /> Code
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+        {projects.length > 0 && (
+          <div className="projects-grid">
+            {projects.map((project, index) => (
+              <Reveal key={project._id} delay={staggerDelay(index + 1)}>
+                <ProjectCard project={project} onCaseStudy={setActiveProject} />
+              </Reveal>
             ))}
-          </AnimatePresence>
-        </div>
+          </div>
+        )}
       </div>
+
+      <AnimatePresence>
+        {activeProject && (
+          <ProjectCaseStudyModal
+            key={activeProject._id}
+            project={activeProject}
+            onClose={() => setActiveProject(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

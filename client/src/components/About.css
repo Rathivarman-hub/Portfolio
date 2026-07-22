@@ -1,179 +1,204 @@
-/* About.css */
 .about-section {
   background: var(--bg-primary);
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
-.section-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--accent-1);
-  margin-bottom: 8px;
-}
-
-.title-underline {
-  width: 60px;
-  height: 4px;
-  background: var(--gradient-primary);
-  border-radius: 2px;
-  margin: 12px auto 0;
-}
-
-/* Profile Image */
-.about-img-card {
-  position: relative;
-  overflow: hidden;
-  max-width: 350px; 
-  border-radius: 20px;
-}
-
-.about-profile-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.about-img-card:hover .about-profile-img {
-  transform: scale(1.04);
-}
-
-.about-img-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 16px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
-}
-
-.overlay-tag {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.dot-sep {
-  opacity: 0.5;
-}
-
-/* About Text */
-.about-greeting {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: var(--text-primary);
-}
-
-.about-desc {
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 12px;
-  font-size: 0.98rem;
-}
-
-/* Career Box */
-.career-box {
-  border-left: 3px solid var(--accent-1);
-}
-
-.education-title {
-  color: var(--text-primary) !important;
-  font-weight: 700;
-  margin-top: 2rem;
-}
-
-/* Bio block */
-.about-bio-wrap {
-  max-width: 720px;
-  margin: 0 auto 3rem;
-  text-align: center;
-}
-
-/* Two-column grid for Education + Internship */
-.about-timeline-grid {
+/* ===========================
+   TWO-COLUMN LAYOUT
+   =========================== */
+.about-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
+  gap: 3rem;
   align-items: start;
+  margin-bottom: 4rem;
 }
 
-@media (max-width: 768px) {
-  .about-timeline-grid {
-    grid-template-columns: 1fr;
-  }
+.about-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-header {
+  margin-bottom: 0;
+}
+
+.about-bio-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 
-/* Timeline */
+.about-desc {
+  font-size: 0.9625rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ===========================
+   STATS ROW
+   =========================== */
+.about-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--divider);
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.about-stat-number {
+  font-family: 'Outfit', 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ===========================
+   EDUCATION CARD
+   =========================== */
+.about-education-card {
+  width: 100%;
+  height: auto;
+}
+
+/* ===========================
+   EDUCATION TIMELINE
+   =========================== */
+.about-education {
+  padding-top: 0;
+}
+
+.about-education-title {
+  font-family: 'Outfit', 'Poppins', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
 .timeline {
   position: relative;
-  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 2rem;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 8px;
-  top: 0;
-  bottom: 0;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
   width: 2px;
-  background: var(--divider);
+  background: var(--gradient-primary);
+  opacity: 0.35;
+  border-radius: 2px;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 20px;
+  padding-bottom: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
 .timeline-dot {
   position: absolute;
-  left: -24px;
-  top: 16px;
-  width: 14px;
-  height: 14px;
+  left: -1.875rem;
+  top: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--gradient-primary);
   border: 2px solid var(--bg-primary);
-  z-index: 1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  flex-shrink: 0;
 }
 
 .timeline-content {
-  border-left: 2px solid var(--border-accent);
+  flex: 1;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-card);
 }
 
 .timeline-year {
-  font-size: 0.78rem;
-  color: var(--accent-1);
+  font-size: 0.75rem;
   font-weight: 600;
+  color: var(--accent-1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 }
 
 .timeline-title {
-  font-weight: 700;
-  margin-bottom: 2px;
+  font-size: 0.925rem;
+  font-weight: 600;
   color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
 }
 
 .timeline-org {
-  font-size: 0.82rem;
-  color: var(--accent-3);
-  font-weight: 500;
-  display: block;
-  margin-bottom: 6px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
 }
 
-.timeline-desc {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  margin: 0;
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 991px) {
+  .about-two-col {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-right-panel {
+    gap: 1.5rem;
+  }
+
+  .about-stats {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-stats {
+    gap: 1.25rem;
+  }
 }

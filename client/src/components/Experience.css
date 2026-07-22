@@ -1,0 +1,194 @@
+.experience-section {
+  background: var(--bg-primary);
+}
+
+/* ===========================
+   VERTICAL TIMELINE
+   =========================== */
+.exp-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 2.5rem;
+}
+
+/* The animated vertical line */
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: var(--gradient-primary);
+  opacity: 0.4;
+  border-radius: 2px;
+}
+
+/* ===========================
+   TIMELINE ITEM
+   =========================== */
+.exp-timeline-item {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+}
+
+.exp-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* ===========================
+   TIMELINE NODE
+   =========================== */
+.exp-node {
+  position: absolute;
+  left: -2.5rem;
+  top: 18px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.exp-node-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* ===========================
+   EXPERIENCE CARD
+   =========================== */
+.exp-card {
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: var(--radius-card);
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+
+.exp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-accent);
+}
+
+.exp-card-header {
+  margin-bottom: 1.25rem;
+}
+
+.exp-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.exp-year {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.exp-type-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.exp-org-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.exp-title {
+  font-family: 'Outfit', 'Poppins', sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.exp-org {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ===========================
+   BULLET POINTS
+   =========================== */
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.exp-bullet {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: 0.8875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.exp-bullet-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.55em;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 767px) {
+  .exp-timeline {
+    padding-left: 2rem;
+  }
+
+  .exp-node {
+    left: -2rem;
+    width: 20px;
+    height: 20px;
+    top: 16px;
+  }
+
+  .exp-timeline::before {
+    left: 9px;
+  }
+
+  .exp-card {
+    padding: 1.125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exp-card:hover {
+    transform: none;
+  }
+}

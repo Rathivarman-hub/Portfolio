@@ -1,132 +1,105 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import Reveal, { staggerDelay } from './Reveal';
 import './About.css';
 
 const timeline = [
   {
-    year: '2023 - 2027',
-    title: 'B.Tech Computer Science and Business System',
+    year: '2023 – 2027',
+    title: 'B.Tech Computer Science and Business Systems',
     org: 'E.G.S Pillay Engineering College',
   },
   {
-    year: '2021 - 2023',
-    title: 'HSC',
-    org: 'Thanthai periyar Govt HR.Secondary School',
+    year: '2021 – 2023',
+    title: 'Higher Secondary (HSC)',
+    org: 'Thanthai Periyar Govt HR Secondary School',
   },
   {
-    year: '2020 - 2021',
-    title: 'SSLC',
-    org: 'Karaikal Ammaiyar Govt.Aided Secondary School',
+    year: '2020 – 2021',
+    title: 'Secondary (SSLC)',
+    org: 'Karaikal Ammaiyar Govt Aided Secondary School',
   },
 ];
-
-const experienceTimeline = [
-  {
-    year: '2026',
-    title: 'Full Stack Development Internship',
-    org: 'Cognifyz Technologies',
-    desc: 'Built scalable web applications using the MERN stack.',
-  },
-  {
-    year: '2025',
-    title: 'Frontend Developer Internship',
-    org: 'CodeAlpha',
-    desc: 'Developed responsive and interactive UIs using HTML, CSS and JavaScript.',
-  },
-];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
 
 export default function About() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section id="about" className="section-padding about-section">
-      <div className="container">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-5"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="section-label">Get to Know Me</p>
-          <h2 className="section-title">About <span className="text-gradient">Me</span></h2>
-          <div className="title-underline"></div>
-        </motion.div>
+      <div className="container content-width">
+        {/* Two-column: about + education */}
+        <div className="about-two-col">
+          <Reveal delay={0.06}>
+            <div className="about-left-col">
+              <header className="section-header about-header">
+                <p className="section-label">Background</p>
+                <h2 className="section-title">About</h2>
+              </header>
 
-        {/* Bio */}
-        <motion.div
-          className="about-bio-wrap"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="about-greeting">Full Stack Developer</h3>
-          <p className="about-desc">
-            I'm <strong>Rathivarman</strong>, a passionate Full Stack Developer specializing in the MERN
-            stack. I love building sleek, performant web applications that deliver real value to users.
-            From crafting pixel-perfect UIs to designing scalable backend architectures — I handle the full
-            product lifecycle with a keen eye for detail and a passion for clean code.
-          </p>
-        </motion.div>
+              <div className="about-bio-col">
+                <p className="about-desc">
+                  I&apos;m a B.Tech CSBS student (2023–2027) who learned full-stack development by building
+                  and deploying real projects — not just following tutorials. VendorBridge taught me
+                  procurement workflows and multi-role RBAC; my booking platform reinforced OTP auth and
+                  slot management; StockZen sharpened inventory logic and dashboard design.
+                </p>
+                <p className="about-desc">
+                  Through internships at Cognifyz Technologies and CodeAlpha, I worked on production-style
+                  features across the stack. Outside feature work, I dedicate time to Data Structures &amp;
+                  Algorithms and system design fundamentals to prepare for product-based engineering interviews.
+                </p>
 
-        {/* Education + Internship side by side */}
-        <div className="about-timeline-grid">
-          {/* Education */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.div variants={itemVariants}>
-              <h5 className="mb-3 education-title"> Education</h5>
-              <div className="timeline">
-                {timeline.map((item, i) => (
-                  <div key={i} className="timeline-item">
-                    <div className="timeline-dot"></div>
-                    <div className="timeline-content glass-card p-3">
-                      <span className="timeline-year">{item.year}</span>
-                      <h6 className="timeline-title">{item.title}</h6>
-                      <span className="timeline-org">{item.org}</span>
-                    </div>
+                <div className="about-stats">
+                  <div className="about-stat">
+                    <span className="about-stat-number">4+</span>
+                    <span className="about-stat-label">Projects Shipped</span>
                   </div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Internship / Experience */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.div variants={itemVariants}>
-              <h5 className="mb-3 education-title"> Internship</h5>
-              <div className="timeline">
-                {experienceTimeline.map((item, i) => (
-                  <div key={i} className="timeline-item">
-                    <div className="timeline-dot"></div>
-                    <div className="timeline-content glass-card p-3">
-                      <span className="timeline-year">{item.year}</span>
-                      <h6 className="timeline-title">{item.title}</h6>
-                      <span className="timeline-org">{item.org}</span>
-                      <p className="timeline-desc">{item.desc}</p>
-                    </div>
+                  <div className="about-stat">
+                    <span className="about-stat-number">2</span>
+                    <span className="about-stat-label">Internships</span>
                   </div>
-                ))}
+                  <div className="about-stat">
+                    <span className="about-stat-number">MERN</span>
+                    <span className="about-stat-label">Core Stack</span>
+                  </div>
+                </div>
               </div>
-            </motion.div>
+            </div>
+          </Reveal>
+
+          <motion.div
+            className="about-right-col"
+            initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{
+              duration: prefersReducedMotion ? 0.01 : 0.6,
+              delay: 0.1,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+            <Reveal delay={0.12}>
+              <header className="section-header about-header">
+                <p className="section-label">Learn</p>
+                <h2 className="section-title">Education</h2>
+              </header>
+
+              <div className="about-education">
+                <div className="timeline">
+                  {timeline.map((item, index) => (
+                    <Reveal key={item.year} delay={staggerDelay(index)}>
+                      <div className="timeline-item">
+                        <div className="timeline-dot" />
+                        <div className="timeline-content glass-card interactive-card">
+                          <span className="timeline-year">{item.year}</span>
+                          <h4 className="timeline-title">{item.title}</h4>
+                          <span className="timeline-org">{item.org}</span>
+                        </div>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </motion.div>
         </div>
       </div>

@@ -1,168 +1,141 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FiDownload, FiArrowDown, FiEye } from 'react-icons/fi';
-import { SiReact, SiExpress, SiNodedotjs, SiMongodb } from 'react-icons/si';
-import resume from '../assets/Resume.pdf';
+import { FiArrowDown, FiMail } from 'react-icons/fi';
+import { SiLeetcode } from 'react-icons/si';
 import profileImg from '../assets/Photo.jpeg';
 import './Home.css';
 
-const typingTexts = [
-  'Full Stack MERN Developer',
-  'Building Scalable Web Applications',
-  'Crafting Modern UI with React',
-  'Backend APIs with Node & Express',
-];
+const heroStagger = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.11, delayChildren: 0.05 },
+  },
+};
 
-function useTypingEffect(texts, speed = 100, pause = 1800) {
-  const [displayed, setDisplayed] = useState('');
-  const [idx, setIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [deleting, setDeleting] = useState(false);
+const heroItem = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
-  useEffect(() => {
-    const current = texts[idx];
-    let timeout;
-    if (!deleting && charIdx < current.length) {
-      timeout = setTimeout(() => setCharIdx(c => c + 1), speed);
-    } else if (!deleting && charIdx === current.length) {
-      timeout = setTimeout(() => setDeleting(true), pause);
-    } else if (deleting && charIdx > 0) {
-      timeout = setTimeout(() => setCharIdx(c => c - 1), speed / 2);
-    } else if (deleting && charIdx === 0) {
-      setDeleting(false);
-      setIdx(i => (i + 1) % texts.length);
-    }
-    setDisplayed(current.slice(0, charIdx));
-    return () => clearTimeout(timeout);
-  }, [charIdx, deleting, idx, texts, speed, pause]);
-
-  return displayed;
-}
-
-const floatingOrbs = [
-  { size: 300, x: '10%', y: '20%', color: 'rgba(99,102,241,0.15)', delay: 0 },
-  { size: 200, x: '70%', y: '60%', color: 'rgba(139,92,246,0.12)', delay: 2 },
-  { size: 150, x: '85%', y: '15%', color: 'rgba(6,182,212,0.1)', delay: 1 },
-];
+const heroItemReduced = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.01 } },
+};
 
 export default function Home() {
-  const typingText = useTypingEffect(typingTexts);
+  const prefersReducedMotion = useReducedMotion();
+  const item = prefersReducedMotion ? heroItemReduced : heroItem;
 
-  const scrollToProjects = (e) => {
+  const scrollTo = (e, selector) => {
     e.preventDefault();
-    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <section id="home" className="home-section">
-      {/* Floating Background Orbs */}
-      {floatingOrbs.map((orb, i) => (
-        <div
-          key={i}
-          className="bg-orb animate-float"
-          style={{
-            width: orb.size,
-            height: orb.size,
-            left: orb.x,
-            top: orb.y,
-            background: orb.color,
-            animationDelay: `${orb.delay}s`,
-          }}
-        />
-      ))}
+      {/* Background orbs */}
+      <div className="hero-orb hero-orb-1" aria-hidden="true" />
+      <div className="hero-orb hero-orb-2" aria-hidden="true" />
+      <div className="hero-orb hero-orb-3" aria-hidden="true" />
 
-      <div className="container">
-        <div className="row align-items-center min-vh-100">
-          {/* Left Content */}
-          <div className="col-12 col-lg-7 order-2 order-lg-1 py-5">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
-            >
-              <div className="badge-pill mb-4">
-                <span className="badge-dot"></span>
-                <span>Available for Opportunities</span>
-              </div>
-
-              <h1 className="hero-title">
-                Hi, I'm <br />
-                <span className="text-gradient">Rathivarman P</span>
-              </h1>
-
-              <div className="typing-container mb-4">
-                <span className="typing-prefix"> </span>
-                <span className="typing-text">{typingText}</span>
-                <span className="typing-cursor">|</span>
-              </div>
-
-              <p className="hero-description">
-                I craft modern, scalable web applications using the MERN stack.
-                Passionate about clean code, stunning UI, and delivering
-                exceptional digital experiences.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="hero-btns d-flex flex-wrap gap-3 mt-4 mb-5">
-                <a href="#projects" className="btn-primary-grad" onClick={scrollToProjects} id="view-projects-btn">
-                  View Projects <FiArrowDown style={{ marginLeft: 4 }} />
-                </a>
-                <a href={resume} download className="btn-outline-grad" id="download-resume-btn">
-                  <FiDownload /> Download CV
-                </a>
-                <a href={resume} target="_blank" rel="noreferrer" className="btn-outline-grad" id="view-resume-btn">
-                  <FiEye /> View Resume
-                </a>
-              </div>
-
-              {/* Social Links */}
-              <div className="hero-social-links">
-                <a href="https://github.com/Rathivarman-hub" target="_blank" rel="noreferrer" className="hero-social-link" id="hero-github">
-                  <FaGithub />
-                  <span>GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/rathivarman-p/" target="_blank" rel="noreferrer" className="hero-social-link" id="hero-linkedin">
-                  <FaLinkedin />
-                  <span>LinkedIn</span>
-                </a>
-
-              </div>
+      <div className="container content-width" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="hero-grid">
+          <motion.div
+            className="hero-content"
+            variants={heroStagger}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div className="badge-pill" variants={item}>
+              <span className="badge-dot" />
+              <span>Available for Opportunities</span>
             </motion.div>
-          </div>
 
-          {/* Right: Profile Image */}
-          <div className="col-12 col-lg-5 order-1 order-lg-2 d-flex justify-content-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-              className="profile-wrapper animate-pulse-glow"
-            >
-              <div className="profile-ring"></div>
+            <motion.h1 className="hero-title" variants={item}>
+              <span className="hero-name">Rathivarman P</span>
+            </motion.h1>
+
+            <motion.p className="hero-role" variants={item}>
+              MERN Stack Developer
+            </motion.p>
+
+            <motion.p className="hero-description" variants={item}>
+              MERN Stack Developer focused on building scalable web applications, secure authentication systems,
+              and performant user experiences. Currently strengthening DSA and system design skills for product engineering roles.
+            </motion.p>
+
+            <motion.div className="trust-row" variants={item} aria-hidden="false">
+              <div className="trust-badge">MERN Stack Developer</div>
+              <div className="trust-badge">DSA Learner</div>
+            </motion.div>
+
+            <motion.div className="hero-btns" variants={item}>
+              <a
+                href="#projects"
+                className="btn-primary-grad"
+                onClick={(e) => scrollTo(e, '#projects')}
+              >
+                View Projects <FiArrowDown />
+              </a>
+              <a
+                href="https://leetcode.com/u/Rathivarman_05/"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-outline-grad"
+              >
+                <SiLeetcode /> LeetCode
+              </a>
+              <a
+                href="#contact"
+                className="btn-outline-grad"
+                onClick={(e) => scrollTo(e, '#contact')}
+              >
+                <FiMail /> Contact Me
+              </a>
+            </motion.div>
+
+            <motion.div className="hero-social-links" variants={item}>
+              <a href="https://github.com/Rathivarman-hub" target="_blank" rel="noreferrer" className="hero-social-link">
+                <FaGithub /> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/rathivarman-p/" target="_blank" rel="noreferrer" className="hero-social-link">
+                <FaLinkedin /> LinkedIn
+              </a>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="hero-visual"
+            initial={{
+              opacity: 0,
+              scale: prefersReducedMotion ? 1 : 0.9,
+              y: prefersReducedMotion ? 0 : 20,
+            }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{
+              duration: prefersReducedMotion ? 0.01 : 0.6,
+              delay: prefersReducedMotion ? 0 : 0.4,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+            <div className="profile-wrapper">
+              <div className="profile-ring" />
               <img
                 src={profileImg}
-                alt="Rathi Varman - Developer"
+                alt="Rathivarman P — MERN Stack Developer"
                 className="profile-img"
+                fetchPriority="high"
+                width={320}
+                height={320}
               />
-
-              {/* Floating tech badges */}
-              <div className="float-badge badge-top-right">
-                <span><SiReact size={20} color="#61dafb" /></span> React
-              </div>
-              <div className="float-badge badge-bottom-right">
-                <span><SiExpress size={20} color="#6366f1" /></span> Express.js
-              </div>
-              <div className="float-badge badge-bottom-left">
-                <span><SiNodedotjs size={20} color="#339933" /></span> Node.js
-              </div>
-              <div className="float-badge badge-top-left">
-                <span><SiMongodb size={20} color="#47a248" /></span> MongoDB
-              </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
-
       </div>
     </section>
   );

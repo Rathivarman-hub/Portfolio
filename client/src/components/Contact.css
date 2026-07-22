@@ -3,6 +3,27 @@
   background: var(--bg-primary);
 }
 
+.contact-heading {
+  font-family: 'Outfit', 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.contact-intro {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.contact-form-title {
+  font-family: 'Outfit', 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
 /* Contact Info */
 .contact-info-list {
   display: flex;
@@ -81,11 +102,13 @@ a.contact-value:hover {
 
 .form-input-custom:focus,
 .form-input-custom:focus-visible {
-  border-color: var(--accent-1);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+  border-color: transparent;
   background: var(--bg-card);
-  outline: 2px solid var(--accent-1);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--bg-primary),
+    0 0 0 4px #6366f1,
+    0 4px 16px rgba(99, 102, 241, 0.15);
 }
 
 .form-input-custom.is-invalid {
